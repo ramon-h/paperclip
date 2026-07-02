@@ -3607,7 +3607,12 @@ export function IssueDetail() {
 
   return (
     <FileViewerProvider issueId={issue.id} enabled={fileViewerEnabled}>
-    <div className="max-w-3xl space-y-6">
+    <div className="paperclip-issue-outer space-y-6">
+      {/* On wide screens (≥1600px) the outer div becomes a flexbox row.
+          paperclip-issue-left-col wraps all non-document content so it
+          stacks vertically as the left column, while IssueDocumentsSection
+          (data-paperclip-docs="1") floats as a sticky right column. */}
+      <div className="paperclip-issue-left-col">
       {/* Parent chain breadcrumb */}
       {ancestors.length > 0 && (
         <nav className="flex items-center gap-1 text-xs text-muted-foreground flex-wrap">
@@ -4137,6 +4142,7 @@ export function IssueDetail() {
           agentMap={agentMap}
         />
       ) : null}
+      </div>{/* end paperclip-issue-left-col */}
 
       <IssueDocumentsSection
         issue={issue}
