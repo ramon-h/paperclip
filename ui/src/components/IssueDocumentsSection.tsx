@@ -790,7 +790,7 @@ export function IssueDocumentsSection({
   }, []);
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3" data-paperclip-docs="1">
       {isEmpty && !draft?.isNew ? (
         <div className="flex flex-wrap items-center justify-end gap-2 min-w-0">
           {extraActions}
